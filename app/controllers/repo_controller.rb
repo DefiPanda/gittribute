@@ -32,13 +32,11 @@ class RepoController < ApplicationController
     	if confirmed == false
         confirmed = getVerified(url, @username, @repo)
     	end
-      puts '!!!!!'
-      puts confirmed
       if confirmed
         repoInfo = getRepoInfo(@username, @repo)
         @repo_description = repoInfo[1]
         @repoid = repoInfo[0]
-        Repo.find_or_create_by_userid!(:reponame => @repo, :userid => userid, :repoid => repoInfo[0], :description=> repoInfo[1])
+        Repo.find_or_create_by_userid_and_repoid!(:reponame => @repo, :userid => userid, :repoid => @repoid, :description=> @repo_description)
       end
     else
       repo = Repo.find_by_userid_and_reponame(userid, @repo)
