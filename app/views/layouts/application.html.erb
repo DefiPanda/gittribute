@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gittribute</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-inner">
+    <ul class="nav pull-right">
+      <li>
+        <% if current_user %>
+          Hi, <%= current_user.username %>!
+          <%= link_to "Sign out", signout_path %>
+        <% else %>
+          <%= link_to("/auth/github") do %>
+            <i class="fa fa-github fa-2x"></i> Sign in with Github
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">x</a>
+      <%= msg  %>
+    </div>
+  <% end %>
+  <%= yield %>
+</div>
+
+</body>
+</html>

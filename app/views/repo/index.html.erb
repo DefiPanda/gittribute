@@ -1,0 +1,12 @@
+<%= will_paginate %>
+<ul class="repos">
+  <% @repo.each do |repo| %>
+    <li>
+	  	<% username = User.find_by_userid(repo.userid).username %>
+	  	<% reponame = repo.reponame %> 	
+	  	<div class="content"><strong><%= link_to "#{username}/#{reponame}", "/user/#{username}/repo/#{reponame}" %></strong> <%= repo.description %></div>
+	  	<div class="meta"><%= link_to "Comment","/user/#{username}/repo/#{reponame}" %> </div>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate %>

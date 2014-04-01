@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  content: MyString
+  repoid: 1
+  userid: 1
+
+two:
+  content: MyString
+  repoid: 1
+  userid: 1
