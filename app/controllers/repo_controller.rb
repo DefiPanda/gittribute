@@ -32,6 +32,8 @@ class RepoController < ApplicationController
     	if confirmed == false
         confirmed = getVerified(url, @username, @repo)
     	end
+      puts '!!!!!'
+      puts confirmed
       if confirmed
         repoInfo = getRepoInfo(@username, @repo)
         @repo_description = repoInfo[1]
