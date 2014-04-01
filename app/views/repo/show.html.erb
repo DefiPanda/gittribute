@@ -1,11 +1,8 @@
 <% if @error.blank? %>
   <div class="content"><strong><%= "#{@username}/#{@repo}" %></strong> <%= @repo_description %></div>
   <%= link_to "Find me on Github", "https://github.com/#{@username}/#{@repo}" %>
-<% else %>
-  <%= @error %>
-<% end %>
-<hr>
-<div>
+  <hr>
+  <div>
 	<h4>Comments<h4>
 	<ul class="repos">
 	  <% @comment.each do |comment| %>
@@ -20,4 +17,7 @@
 	</ul>
     <hr>
     <h5><%= link_to "Add Comment", new_comment_path(:repoid => @repoid) %></h5>
-</div>
+  </div>
+<% else %>
+  <%= @error %>
+<% end %>
