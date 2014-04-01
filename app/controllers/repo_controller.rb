@@ -2,7 +2,7 @@ include ApplicationHelper
 
 class RepoController < ApplicationController
 	def index
-		@repo = Repo.paginate(:page => params[:page], :per_page => 30)
+		@repo = Repo.paginate(:page => params[:page], :per_page => 30, :order => "created_at DESC")
 	end
 
 	def show
@@ -46,7 +46,7 @@ class RepoController < ApplicationController
     if confirmed == false and Repo.find_by_userid_and_reponame(userid, @repo).nil?
     	@error = "You sure your URL is correct and you include this url in your Github repo?"
     else
-      @comment = Comment.find_all_by_repoid(@repoid)
+      @comment = Comment.find_all_by_repoid(@repoid, :order => "created_at DESC")
     end
 	end
 end
