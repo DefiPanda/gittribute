@@ -11,6 +11,11 @@ For example, if I (jw2013) want to add my repo (triangletech) to gittribute, I w
 ```
 http://gittribute.herokuapp.com/user/jw2013/repo/triangletech  
 ```  
+
+Or if I want to add my repo (gittribute), I will type
+```
+http://gittribute.herokuapp.com/user/jw2013/repo/gittribute
+```
    
 You can include that url anywhere inside your README.md, however you want (e.g. typical .md link formatting is fine [description](http://gittribute.herokuapp.com/user/jw2013/repo/triangletech)). Then just either click this url, or manually type this url. Your repo will then be our site!  
   
